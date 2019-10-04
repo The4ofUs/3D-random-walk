@@ -20,86 +20,64 @@ def randomize():
     global Z_coor
 
     #X=np.zeros((step_n,1))
-    print("x is")
-    print(X)
     step_set = [-1, 0, 1]
     origin = np.zeros((1, dims))
-    # Simulate steps in 3D
     step_shape = (step_n, dims)
     steps_direction = np.random.choice(a=step_set, size=step_shape)
     new_data_o = np.random.rand(step_n)
     new_data = np.array([new_data_o]).T
-    print(new_data)
-    print(steps_direction)
+
     for i in range(step_n):
         if steps_direction[i][0]==0:
-            print('stay')
-            print(i)
             x=X.pop()
             X.append(0)
             X[0]=x
             X_coor[i]=X[0]
-            print(X)
+
         elif steps_direction[i][0]==1:
-            print(i)
             x=X.pop()
             X.append(0)
             X[0]=x+new_data[i]
-            print(X)
             X_coor[i]=X[0]
         elif steps_direction[i][0]== -1:
-            print(i)
             x=X.pop()
             X.append(0)
             X[0]=x-new_data[i]
             X_coor[i]=X[0]
-    print('x isnew')
-    print(X_coor[0])
 
     for i in range(step_n):
         if steps_direction[i][1]==0:
-            print('stay')
-            print(i)
             y=Y.pop()
             Y.append(0)
             Y[0]=y
             Y_coor[i]=Y[0]
         elif steps_direction[i][1]==1:
-            print(i)
             y=Y.pop()
             Y.append(0)
             Y[0]=y+new_data[i]
             Y_coor[i]=Y[0]
         elif steps_direction[i][1]== -1:
-            print(i)
             y=Y.pop()
             Y.append(0)
             Y[0]=y-new_data[i]
             Y_coor[i]=Y[0]
-    print('y isnew')
-    print(X_coor[0])
     for i in range(step_n):
         if steps_direction[i][2]==0:
-            print('stay')
-            print(i)
             z=Z.pop()
             Z.append(0)
             Z[0]=z
             Z_coor[i]=Z[0]
         elif steps_direction[i][2]==1:
-            print(i)
             z=Z.pop()
             Z.append(0)
             Z[0]=z+new_data[i]
             Z_coor[i]=Z[0]
         elif steps_direction[i][2]== -1:
-            print(i)
             z=Z.pop()
             Z.append(0)
             Z[0]=z-new_data[i]
             Z_coor[i]=Z[0]
-    print('Z isnew')
-    print(Z_coor[0])
+
     #return steps_direction
 
 new_data=randomize()
@@ -123,9 +101,9 @@ map_ax = Axes3D(map)
 map_ax.autoscale(enable=True, axis='both', tight=True)
 
 # # # Setting the axes properties
-map_ax.set_xlim3d([0.0, 10.0])
-map_ax.set_ylim3d([0.0, 10.0])
-map_ax.set_zlim3d([0.0, 10.0])
+map_ax.set_xlim3d([-5.0, 5.0])
+map_ax.set_ylim3d([-5.0, 5.0])
+map_ax.set_zlim3d([-5.0, 5.0])
 map_ax.set_xlabel('X')
 map_ax.set_ylabel('Y')
 map_ax.set_zlabel('Z')
