@@ -4,19 +4,21 @@
 #include <iostream>
 #include <array>
 #include <ctime>
+#include <new>
 class randomGenerator
 {
     // Access specifier followed by the Data members then function members
 public:
-    int N;
+    int N = 0;
     double r, theta, phi;
-    double Step[100];
+    double *Step = new double[N];
 
     struct directions
     {
-        std::array<double, 1000> X;
-        std::array<double, 1000> Y;
-        std::array<double, 1000> Z;
+        int n = 0;
+        double *X = new double[n];
+        double *Y = new double[n];
+        double *Z = new double[n];
     };
     directions D;
 
@@ -34,20 +36,20 @@ public:
         FILE *output;
         output = fopen("output.csv", "w");
         fprintf(output, "Theta,Phi,x,y,z\n");
-
         for (int i = 0; i <= N; i++)
         {
             float u = ((float)rand()) / (float)RAND_MAX;
             float v = ((float)rand()) / (float)RAND_MAX;
             // cubic root to prevent clumping in the center
             float r = cbrt(((float)rand()) / (float)RAND_MAX);
+
             double theta = 2 * M_PI * u;
             double phi = acos(1 - 2 * v);
-            double x =  sin(phi) * cos(theta);
+            double x = r * sin(phi) * cos(theta);
             D.X[i] = x;
-            double y =  sin(phi) * sin(theta);
+            double y = r * sin(phi) * sin(theta);
             D.Y[i] = y;
-            double z =  cos(phi);
+            double z = r * cos(phi);
             D.Z[i] = z;
             fprintf(output, "%f,%f,%f,%f,%f\n", theta, phi, x, y, z);
         }
@@ -59,19 +61,22 @@ int main()
 {
     randomGenerator Random;
     randomGenerator::directions D;
+    int n;
     //testing randomStep algorithm
     double *f;
     srand(time(NULL));
-
-    f = Random.randomStep(100);
-    for (int i = 0; i < 99; i++)
+    std::cin >> n;
+    D.n = n;
+    Random.N = n;
+    f = Random.randomStep(n);
+    for (int i = 0; i < n; i++)
     {
         std::cout << "*(f + " << i << ") : ";
         std::cout << *(f + i) << std::endl;
     }
     //testing randomDirection algorithm
-    D = Random.randomDirection(1000);
-    for (int i = 0; i <= 99; i++)
+    D = Random.randomDirection(n);
+    for (int i = 0; i <= n; i++)
     {
         std::cout << "X is" << D.X[i] << std::endl;
         std::cout << "Y is" << D.Y[i] << std::endl;
