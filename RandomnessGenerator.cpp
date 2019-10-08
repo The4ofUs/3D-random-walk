@@ -23,7 +23,7 @@ int main()
         ray.move();
 
         //Checking output
-        std::cout << "Ray #" << i << ":\n"
+        std::cout << "Movement #" << i << ":\n"
                   << "Current Position: "
                   << "( " << ray.getCurrentPos().getX() << ", "
                   << ray.getCurrentPos().getY() << ", " << ray.getCurrentPos().getZ() << " )\n"
@@ -31,7 +31,7 @@ int main()
                   << "( "
                   << ray.getDirection().getX() << ", " << ray.getDirection().getY() << ", " << ray.getDirection().getZ()
                   << " )\n"
-                  << "Step: " << ray.getStep() << std::endl;
+                  << "Step: " << ray.getStep() << "\n" << std::endl;
 
         streamOut(ray);
     }
