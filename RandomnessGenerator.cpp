@@ -10,7 +10,11 @@ int main()
     ray.startFrom(origin);
     srand(time(NULL));
 
-    for (int i = 0; i < 100; i++)
+    // For streaming out my output in a log file
+    FILE *output;
+    output = fopen("output.csv", "a");
+
+    for (int i = 0; i < 1000; i++)
     {
 
         // Setting ray direction
@@ -31,9 +35,11 @@ int main()
                   << "( "
                   << ray.getDirection().getX() << ", " << ray.getDirection().getY() << ", " << ray.getDirection().getZ()
                   << " )\n"
-                  << "Step: " << ray.getStep() << "\n" << std::endl;
+                  << "Step: " << ray.getStep() << "\n"
+                  << std::endl;
 
-        streamOut(ray);
+        // Streaming out my output in a log file
+        fprintf(output, "%f,%f,%f\n", ray.getCurrentPos().getX(), ray.getCurrentPos().getY(), ray.getCurrentPos().getZ());
     }
 
     return 0;

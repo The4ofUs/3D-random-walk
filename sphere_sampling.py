@@ -6,9 +6,9 @@ import csv
 data = csv.reader(open('output.csv', 'r'), delimiter=",", quotechar='|')
 column1, column2,column3 = [], [],[]
 for row in data:
-    column1.append(float(row[2]))
-    column2.append(float(row[3]))
-    column3.append(float(row[4]))
+    column1.append(float(row[0]))
+    column2.append(float(row[1]))
+    column3.append(float(row[2]))
 
 
 fig = plt.figure(1)
