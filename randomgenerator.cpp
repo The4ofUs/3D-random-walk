@@ -1,17 +1,15 @@
-#include <random>
-#include <cmath>
-#include <chrono>
-#include <iostream>
-#include <array>
-#include <ctime>
+#include "header.hpp"
+
 class randomGenerator
 {
     // Access specifier followed by the Data members then function members
-public:
-    int N;
-    double r, theta, phi;
-    double Step[100];
+    public:
+        int N;      // N is the number of steps
+        double r, theta, phi;       // Spherical Coordinates
+        double Step[1000];
 
+    /* TO-BE-EDITED */
+    // Direction struct that holds my cartesian coordinates as a triplet of doubles (X,Y,Z)
     struct directions
     {
         std::array<double, 1000> X;
@@ -20,6 +18,7 @@ public:
     };
     directions D;
 
+    // Function that returns an array of random steps
     double *randomStep(int N)
     {
         for (int i = 0; i <= N; i++)
@@ -43,11 +42,11 @@ public:
             float r = cbrt(((float)rand()) / (float)RAND_MAX);
             double theta = 2 * M_PI * u;
             double phi = acos(1 - 2 * v);
-            double x =  sin(phi) * cos(theta);
+            double x = sin(phi) * cos(theta);
             D.X[i] = x;
-            double y =  sin(phi) * sin(theta);
+            double y = sin(phi) * sin(theta);
             D.Y[i] = y;
-            double z =  cos(phi);
+            double z = cos(phi);
             D.Z[i] = z;
             fprintf(output, "%f,%f,%f,%f,%f\n", theta, phi, x, y, z);
         }
@@ -63,15 +62,15 @@ int main()
     double *f;
     srand(time(NULL));
 
-    f = Random.randomStep(100);
-    for (int i = 0; i < 99; i++)
+    f = Random.randomStep(1000);
+    for (int i = 0; i < 999; i++)
     {
         std::cout << "*(f + " << i << ") : ";
         std::cout << *(f + i) << std::endl;
     }
     //testing randomDirection algorithm
-    D = Random.randomDirection(1000);
-    for (int i = 0; i <= 99; i++)
+    D = Random.randomDirection(100);
+    for (int i = 0; i <= 999; i++)
     {
         std::cout << "X is" << D.X[i] << std::endl;
         std::cout << "Y is" << D.Y[i] << std::endl;
