@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     int N = 1000;
-
+    double Step[N];
     srand(time(NULL));
 
     FILE *output;
@@ -19,8 +19,8 @@ int main()
     for (int i = 0; i < N; i++)
     {
         //uniform sampling between 0 and 1
-        float step = {((float)rand()) / (float)RAND_MAX};
-        std::cout <<"stepis"<< step<<std::endl;
+        double step = {((float)rand()) / (float)RAND_MAX};
+        Step[i]=step;
         float u = ((float)rand()) / (float)RAND_MAX;
         float v = ((float)rand()) / (float)RAND_MAX;
         // cubic root to prevent clumping in the center
