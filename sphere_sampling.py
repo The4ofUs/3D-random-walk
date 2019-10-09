@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import csv
-
+w=0
+p=0
+d=0
 data = csv.reader(open('output.csv', 'r'), delimiter=",", quotechar='|')
 column1, column2,column3 = [], [],[]
 for row in data:
@@ -10,21 +12,21 @@ for row in data:
     column2.append(float(row[1]))
     column3.append(float(row[2]))
 
-
+""""
 fig = plt.figure(1)
 ax = plt.axes(projection='3d')
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter(column1,column2,column3)
 
-
+"""
 
 
 def update_line(num):
     global w,p,d
     xdata, ydata, zdata = hl._verts3d
-    hl.set_xdata(list(np.append(xdata, X_coor[w])))
-    hl.set_ydata(list(np.append(ydata, Y_coor[p])))
-    hl.set_3d_properties(list(np.append(zdata, Z_coor[d])))
+    hl.set_xdata(list(np.append(xdata, column1[w])))
+    hl.set_ydata(list(np.append(ydata, column2[p])))
+    hl.set_3d_properties(list(np.append(zdata, column3[d])))
     plt.draw()
     #print(new_data[d][2])
     #plt.show(block=True)
@@ -45,7 +47,7 @@ map_ax.set_ylabel('Y')
 map_ax.set_zlabel('Z')
 hl, = map_ax.plot3D([0], [0], [0])
 #i=0
-for i in range(step_n):
+for i in range(100):
     update_line(hl)
     plt.show(block=False)
     plt.pause(0.5)
