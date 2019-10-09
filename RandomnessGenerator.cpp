@@ -14,7 +14,7 @@ int main()
     FILE *output;
     output = fopen("output.csv", "a");
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 950; i++)
     {
 
         // Setting ray direction
