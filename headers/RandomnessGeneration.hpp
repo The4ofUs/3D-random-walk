@@ -16,17 +16,17 @@ public:
         this->z = z;
     }
 
-    double getX()
+    double getx()
     {
         return this->x;
     }
 
-    double getY()
+    double gety()
     {
         return this->y;
     }
 
-    double getZ()
+    double getz()
     {
         return this->z;
     }
@@ -71,7 +71,17 @@ public:
         double z = cos(phi);
 
         point.setCoordinates(x, y, z);
+        exportSamplingPlot(point);
 
         return point;
+    }
+
+    void exportSamplingPlot(Point point)
+    {
+        // For streaming out my output in a log file
+        FILE *sampling;
+        sampling = fopen("sampling.csv", "a");
+        // Streaming out my output in a log file
+        fprintf(sampling, "%f,%f,%f\n", point.getx(), point.gety(), point.getz());
     }
 };

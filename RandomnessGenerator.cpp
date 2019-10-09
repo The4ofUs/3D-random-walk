@@ -14,7 +14,7 @@ int main()
     FILE *output;
     output = fopen("output.csv", "a");
 
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 100; i++)
     {
 
         // Setting ray direction
@@ -29,17 +29,17 @@ int main()
         //Checking output
         std::cout << "Movement #" << i << ":\n"
                   << "Current Position: "
-                  << "( " << ray.getCurrentPos().getX() << ", "
-                  << ray.getCurrentPos().getY() << ", " << ray.getCurrentPos().getZ() << " )\n"
+                  << "( " << ray.getCurrentPos().getx() << ", "
+                  << ray.getCurrentPos().gety() << ", " << ray.getCurrentPos().getz() << " )\n"
                   << "Direction : "
                   << "( "
-                  << ray.getDirection().getX() << ", " << ray.getDirection().getY() << ", " << ray.getDirection().getZ()
+                  << ray.getDirection().getx() << ", " << ray.getDirection().gety() << ", " << ray.getDirection().getz()
                   << " )\n"
                   << "Step: " << ray.getStep() << "\n"
                   << std::endl;
 
         // Streaming out my output in a log file
-        fprintf(output, "%f,%f,%f\n", ray.getCurrentPos().getX(), ray.getCurrentPos().getY(), ray.getCurrentPos().getZ());
+        fprintf(output, "%f,%f,%f\n", ray.getCurrentPos().getx(), ray.getCurrentPos().gety(), ray.getCurrentPos().getz());
     }
 
     return 0;
