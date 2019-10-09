@@ -18,7 +18,7 @@ ax.scatter(column1,column2,column3)
 
 
 
-
+""""
 def update_line(num):
     global w,p,d
     xdata, ydata, zdata = hl._verts3d
@@ -50,5 +50,5 @@ for i in range(step_n):
     plt.show(block=False)
     plt.pause(0.5)
 
-
+"""
 plt.show()
