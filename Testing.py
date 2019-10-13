@@ -5,14 +5,14 @@ import csv
 w=0
 p=0
 d=0
-data = csv.reader(open('output.csv', 'r'), delimiter=",", quotechar='|')
+data = csv.reader(open('build/output.csv', 'r'), delimiter=",", quotechar='|')
 column1, column2,column3 = [], [],[]
 for row in data:
     column1.append(float(row[0]))
     column2.append(float(row[1]))
     column3.append(float(row[2]))
 
-data = csv.reader(open('sampling.csv', 'r'), delimiter=",", quotechar='|')
+data = csv.reader(open('build/sampling.csv', 'r'), delimiter=",", quotechar='|')
 X, Y ,Z= [], [],[]
 for row in data:
     X.append(float(row[0]))

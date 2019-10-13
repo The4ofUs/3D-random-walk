@@ -1,4 +1,4 @@
-#include "./headers/header.hpp"
+#include "header.hpp"
 #define NUMBER_OF_ITERATIONS 500 // Number of steps, just for the demo, this number should be decided or taken later on by the user
 
 int main()
@@ -7,7 +7,7 @@ int main()
     RandomnessGenerator randomnessGenerator;
     Ray ray;
     Point origin;
-    origin.setCoordinates(0, 0, 0);
+    origin.setCoordinates(0.f, 0.f, 0.f);
     ray.startFrom(origin);
     srand(time(nullptr));
 
