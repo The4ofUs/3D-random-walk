@@ -1,11 +1,7 @@
-#include "RandomnessGeneration.hpp"
+#include "RandomnessGenerator.hpp"
 
 class Ray
 {
-private:
-    Point currentPos;
-    Point direction;
-    double step;
 
 public:
     void startFrom(Point startingPoint) // Sets getYour starting point
@@ -45,4 +41,9 @@ public:
         double newZ = this->currentPos.getZ() + (this->direction.getZ() * this->getStep());
         this->currentPos.setCoordinates(newX, newY, newZ);
     }
+
+private:
+    Point currentPos;
+    Point direction;
+    double step;
 };
