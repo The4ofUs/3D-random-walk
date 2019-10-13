@@ -1,4 +1,5 @@
 #include "./headers/header.hpp"
+#define NUMBER_OF_ITERATIONS 500 // Number of steps, just for the demo, this number should be decided or taken later on by the user
 
 int main()
 {
@@ -8,13 +9,13 @@ int main()
     Point origin;
     origin.setCoordinates(0, 0, 0);
     ray.startFrom(origin);
-    srand(time(NULL));
+    srand(time(nullptr));
 
     // For streaming out my output in a log file
     FILE *output;
     output = fopen("output.csv", "a");
 
-    for (int i = 0; i < 950; i++)
+    for (int i = 0; i < NUMBER_OF_ITERATIONS; i++)
     {
 
         // Setting ray direction
@@ -29,17 +30,17 @@ int main()
         //Checking output
         std::cout << "Movement #" << i << ":\n"
                   << "Current Position: "
-                  << "( " << ray.getCurrentPos().getx() << ", "
-                  << ray.getCurrentPos().gety() << ", " << ray.getCurrentPos().getz() << " )\n"
+                  << "( " << ray.getCurrentPos().getX() << ", "
+                  << ray.getCurrentPos().getY() << ", " << ray.getCurrentPos().getZ() << " )\n"
                   << "Direction : "
                   << "( "
-                  << ray.getDirection().getx() << ", " << ray.getDirection().gety() << ", " << ray.getDirection().getz()
+                  << ray.getDirection().getX() << ", " << ray.getDirection().getY() << ", " << ray.getDirection().getZ()
                   << " )\n"
                   << "Step: " << ray.getStep() << "\n"
                   << std::endl;
 
         // Streaming out my output in a log file
-        fprintf(output, "%f,%f,%f\n", ray.getCurrentPos().getx(), ray.getCurrentPos().gety(), ray.getCurrentPos().getz());
+        fprintf(output, "%f,%f,%f\n", ray.getCurrentPos().getX(), ray.getCurrentPos().getY(), ray.getCurrentPos().getZ());
     }
 
     return 0;

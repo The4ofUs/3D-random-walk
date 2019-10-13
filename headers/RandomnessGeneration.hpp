@@ -1,40 +1,9 @@
 #include <random>
+#include "Point.hpp"
 
-// (x,y,z)
-class Point
-{
-private:
-    double x;
-    double y;
-    double z;
-
-public:
-    void setCoordinates(double x, double y, double z)
-    {
-        this->x = x;
-        this->y = y;
-        this->z = z;
-    }
-
-    double getx()
-    {
-        return this->x;
-    }
-
-    double gety()
-    {
-        return this->y;
-    }
-
-    double getz()
-    {
-        return this->z;
-    }
-};
 
 class RandomnessGenerator
 {
-
     // Access specifier followed by the Data members then function members
 public:
     // __________Constructor__________
@@ -43,7 +12,7 @@ public:
     } */
 
     // Function that returns a random step
-    double getRandomStep()
+    double getRandomStep() const
     {
         // Seeding the random number generator with time(null) to get a different seed each time this function is called
         return {((double)rand()) / (double)RAND_MAX};
@@ -82,6 +51,6 @@ public:
         FILE *sampling;
         sampling = fopen("sampling.csv", "a");
         // Streaming out my output in a log file
-        fprintf(sampling, "%f,%f,%f\n", point.getx(), point.gety(), point.getz());
+        fprintf(sampling, "%f,%f,%f\n", point.getX(), point.getY(), point.getZ());
     }
 };

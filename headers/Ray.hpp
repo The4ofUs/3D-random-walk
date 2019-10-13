@@ -8,14 +8,14 @@ private:
     double step;
 
 public:
-    void startFrom(Point startingPoint) // Sets getyour starting point
+    void startFrom(Point startingPoint) // Sets getYour starting point
     {
-        this->currentPos.setCoordinates(startingPoint.getx(), startingPoint.gety(), startingPoint.getz());
+        this->currentPos.setCoordinates(startingPoint.getX(), startingPoint.getY(), startingPoint.getZ());
     };
 
-    void setDirection(Point direction) // Sets the direction of the ragety
+    void setDirection(Point direction) // Sets the direction of the ragetY
     {
-        this->direction.setCoordinates(direction.getx(), direction.gety(), direction.getz());
+        this->direction.setCoordinates(direction.getX(), direction.getY(), direction.getZ());
     }
 
     void setStep(double step) // Sets the step of movement
@@ -23,26 +23,26 @@ public:
         this->step = step;
     }
 
-    Point getCurrentPos()
+    Point getCurrentPos() const
     {
         return this->currentPos;
     }
 
-    Point getDirection()
+    Point getDirection() const
     {
         return this->direction;
     }
 
-    double getStep()
+    double getStep() const
     {
         return this->step;
     }
 
-    void move() // The point moves in the specified direction with the given step -The function relies on member attributes that getyou should set first-
+    void move() // The point moves in the specified direction with the given step -The function relies on member attributes that getYou should set first-
     {
-        double newx = this->currentPos.getx() + (this->direction.getx() * this->getStep());
-        double newy = this->currentPos.gety() + (this->direction.gety() * this->getStep());
-        double newz = this->currentPos.getz() + (this->direction.getz() * this->getStep());
-        this->currentPos.setCoordinates(newx, newy, newz);
+        double newX = this->currentPos.getX() + (this->direction.getX() * this->getStep());
+        double newY = this->currentPos.getY() + (this->direction.getY() * this->getStep());
+        double newZ = this->currentPos.getZ() + (this->direction.getZ() * this->getStep());
+        this->currentPos.setCoordinates(newX, newY, newZ);
     }
 };
