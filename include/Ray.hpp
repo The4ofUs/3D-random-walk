@@ -13,7 +13,7 @@ public:
     void move(); // The point moves in the specified direction with the given step -The function relies on member attributes that getYou should set first-
 
 private:
-    Point currentPos_;
-    Point direction_;
-    float step_;
+    Point _currentPos;
+    Point _direction;
+    float _step;
 };

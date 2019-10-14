@@ -9,7 +9,7 @@ public:
     float getZ() const;
 
 private:
-    float x_;
-    float y_;
-    float z_;
+    float _x;
+    float _y;
+    float _z;
 };

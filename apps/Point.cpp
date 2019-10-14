@@ -2,11 +2,11 @@
 
 void Point::setCoordinates(float x, float y, float z)
 {
-    this->x_ = x;
-    this->y_ = y;
-    this->z_ = z;
+    this->_x = x;
+    this->_y = y;
+    this->_z = z;
 }
 
-float Point::getX() const { return this->x_; }
-float Point::getY() const { return this->y_; }
-float Point::getZ() const { return this->z_; }
+float Point::getX() const { return this->_x; }
+float Point::getY() const { return this->_y; }
+float Point::getZ() const { return this->_z; }
