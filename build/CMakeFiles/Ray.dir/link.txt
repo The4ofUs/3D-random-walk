@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/Ray.dir/apps/Ray.cpp.o  -o Ray 
